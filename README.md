@@ -5,7 +5,7 @@ To use this bootstrap workflow you need to be logged into a OpenShift Cluster an
 
 To use this example, you can use the Github Web UI or the following CLI commands to create your own empty gitops repository.
 
-Create the repository from the template, this will pre-populate the workflows for Gitops. If you want to use ArgoCD to "pull" changes, you can disable the CI Deploy in Github, and configure argocd to recursively deploy the `export` directory. 
+Create the repository from the template, this will pre-populate the workflows for Gitops. 
 ``` 
 gh repo create demo -p https://github.com/jduimovich/gitops-bootstrap-template
 ```
@@ -29,3 +29,6 @@ A successful run will issue a pull request for the exported files. If you merge 
 
 A CI integration workflow is also included to automatically deploy all changes pushed to the repo.
 
+# Alternative scenarios 
+
+To use OpenShift Pipelines (ArgoCD) to sync changes to your cluster, you can disable the CI Deploy Workflow (or delete it) and configure argocd to recursively deploy the `export` directory when changes are merged into the main branch.
