@@ -23,7 +23,8 @@ jobs:
           namespace: ${{ env.OPENSHIFT_NAMESPACE }}
       - name: Deploy
         run: |
-          oc apply -R -f export 
+          if [ -d export ]; then oc apply -R -f export; else  echo "no deployment due to missing export directory"; fi
+           
 
 
       
