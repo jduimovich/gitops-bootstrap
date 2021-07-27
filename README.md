@@ -13,14 +13,22 @@ Note, reply yes to a local copy or to use the following steps, manually clone th
 
 
 Kick off the workflow with the  cli (or use the GH UI to manually run an export)
+
+Change into repo
 ```
 cd demo 
-set-secret.cmd 
+```
+Set the secrets needed for your cluster via the Github CLI (use the .sh version for linux)
+```
+setsecret.cmd 
+```
+
+Run the workflow manually via the CLI (you can also use the UI on Github)
+```  
 gh workflow run export-submit-pr.yml 
 ```
 
-Watch the workflow run  
-
+Watch the workflow run   
 ```  
 gh run list --workflow=export-submit-pr.yml 
 ```
