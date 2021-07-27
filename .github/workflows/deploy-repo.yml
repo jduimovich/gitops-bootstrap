@@ -15,6 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2    
       - name: Log in to OpenShift 
+        if: env.OPENSHIFT_SERVER != ''
         uses: redhat-actions/oc-login@v1
         with:
           openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
@@ -22,6 +23,7 @@ jobs:
           insecure_skip_tls_verify: true
           namespace: ${{ env.OPENSHIFT_NAMESPACE }}
       - name: Deploy
+        if: env.OPENSHIFT_SERVER != ''
         run: |
           if [ -d export ]; then oc apply -R -f export; else  echo "no deployment due to missing export directory"; fi
            
